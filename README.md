@@ -6,7 +6,7 @@ This is the project to find the roles of the authors based on collaboration netw
 
 This contains the following
 
-> Saxaprser: to get the publication title, authors, year of publication and homepage of the author
+> Saxparser: to get the publication title, authors, year of publication and homepage of the author
 
 > InformationExtraction: Automatic information extraction from the authors webpage
 
