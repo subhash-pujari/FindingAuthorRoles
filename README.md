@@ -4,7 +4,7 @@ FindingAuthorRoles
 
 This is the project to find the roles of the authors based on collaboration network.
 
-This contains the following
+coming soon:
 
 > Saxparser: to get the publication title, authors, year of publication and homepage of the author
 
