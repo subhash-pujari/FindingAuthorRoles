@@ -21,7 +21,7 @@ class TemporalTagger:
         # year month delimiter
         self.year_month_sep = {'forward_slash':'/', 'dot':'\.', 'space':" "}
         # character 
-        self.duration_sep = {'hyphen':'-', 'hyphen_non_ascii':'\xe2\x80\x93', 'curly_hyphen':'~','to':' to ' , 'space': ' '}
+        self.duration_sep = {'hyphen':'-', 'hyphen_non_ascii_90':'\xe2\x80\x90', 'hyphen_non_ascii_91':'\xe2\x80\x91', 'hyphen_non_ascii_92':'\xe2\x80\x92', 'hyphen_non_ascii_93':'\xe2\x80\x93',  'curly_hyphen':'~','to':' to ' , 'space': ' '}
 
         #space
         self.space_limitless = "\\s{0,5}"

@@ -13,7 +13,7 @@ class DesignationTagger:
     def __init__(self):
         self.filename = "/home/subhash/Dropbox/master_thesis/code_role_determiner1.1/dataset/work_section/work_desig_filt.txt"
         
-        self.full_re = "("
+        self.full_re = "\\s+("
         
         for line in open(self.filename):
             line = line.replace("\n", "")

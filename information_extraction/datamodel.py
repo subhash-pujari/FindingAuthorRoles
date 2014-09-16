@@ -8,38 +8,52 @@ from util import resume_util
 from util import file_interface
 from string_util import StringUtil
 from scrap_education import ScrapEducation
-from information_extraction.scrap_work import ScrapWork
+from scrap_work import ScrapWork
 import random
 
 class Resume:
     
     def __init__(self, filename):
+
         self.filename = filename
         
+        # utilities to use for finding section
         self.heading_finder = heading_finder.HeadingFinder()
         self.resume_util = resume_util.ResumeUtil()
         self.string_util = StringUtil()
         
+        # create the line list with each in resume as string
         self.raw_line_list = self.createLineList(filename)
+        
+        # create a list of heading out this line list
         self.heading_list = self.createHeadingList()
+        
+        # create a list of section out of this section list
         self.section_list = self.createSectionList()
         
         
     def getSectionList(self):
+        # return the section list of the resume
         return self.section_list
     
     def createLineList(self, filename):
+        # create a line list of the resume file where each line in the resume represented as string value
         line_list = list()
         for line in open(filename):
             line_list.append(line)
         return line_list
     
     def createHeadingList(self):
+        
+        # pass the line list to the heading finder which mark line as heading or not
         heading_list = self.heading_finder.getHeadingList(self.raw_line_list)
         return heading_list
         pass
     
     def createSectionList(self):
+        
+        # this get the heading list and create section list based on the headings it received
+        
         section_list = list()
         
         line_list = self.raw_line_list
@@ -115,6 +129,8 @@ class Section:
             str = str + line.getLine()
             
         return str
+        
+        
             
 class Line:
     def __init__(self, line):
@@ -122,7 +138,7 @@ class Line:
         self.line = line
         self.temporal_tags = list()
         self.degree_tags = list()
-        self.designation_tags = list()
+        self.desig_tags = list()
         self.institution_tags = list()
         
     def getLine(self):    
@@ -142,47 +158,7 @@ class Line:
 
 
 def main():
-    path = "/home/subhash/Dropbox/master_thesis/code_role_determiner1.1/dataset/pdfToText2.0/"
-    path_output = "/home/subhash/Dropbox/master_thesis/code_role_determiner1.1/dataset/"
-    scrap_edu = ScrapEducation()
-    scrap_work = ScrapWork()
-    fileW_edu = open(path_output + "education_section.txt", "w")
-    fileW_work = open(path_output + "work_section.txt", "w")
-    file_int = file_interface.FileInterface()
-    file_list = file_int.get_file_list(path)
-    
-    fileW_both_sec = open(path_output + "resume_both_sec.tsv")
-    
-    count = set()
-    count_work = 0
-    count_edu = 0
-    
-    count_both_sec = 0
-    file_list = list()
-    for line in fileW_both_sec:
-        line = line.replace("\n", "")
-        file_list.append(line)
-    
-    print len(file_list)
-    
-    random_file_list = list()
-    while len(random_file_list) < 41:
-        index = random.randint(0, len(file_list)-1)
-        random_file_list.append(file_list[index])
-        
-    for index in range(len(random_file_list)):
-        
-        
-        filename = random_file_list[index]
-        print filename
-        resume = Resume(path + filename)
-    
-        for section in resume.section_list:
-            if section.start < 150 and (section.end - section.start) < 70 and section.sec_type == "work":
-                scrap_work.scrap_work(section, filename)
-                
-            if section.start < 100 and (section.end - section.start) < 50 and section.sec_type == "education":
-                scrap_edu.scrap_edu(section, filename)
+    pass
 
     
 

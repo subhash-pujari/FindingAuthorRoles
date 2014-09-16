@@ -20,10 +20,6 @@ class Analyse_Collab_NW:
             tokens = line.split("\t")
             year = tokens[0]
             conf = tokens[1]
-            
-            for author in :
-                if year in self
-            print tokens
     
     def initialise_auth(self): 
         pass

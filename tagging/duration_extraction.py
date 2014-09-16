@@ -19,9 +19,9 @@ class DurationExtraction:
         '''
         Constructor
         '''
-        self.month_num = {1:'Jan', 2:'Feb', 3:'Mar', 4:'Apr', 5:'May', 6:'June', 7:'July', 8:'Aug', 9:'Sept', 10:'Oct', 11:'Nov', 12:'Dec'}
-        self.month_str_short = {'jan':'Jan', 'feb':'Feb', 'mar':'Mar', 'apr':'Apr', 'may':'May', 'jun':'June' ,'june':'June', 'jul':'July','july':'July', 'aug':'Aug', 'sept':'Sept', 'sep':'Sept', 'oct':'Oct', 'nov':'Nov', 'dec':'Dec'}
-        self.month_str_long = {'january':'Jan', 'february':'Feb', 'march':'Mar', 'april':'Apr', 'may':'May', 'june':'June', 'july':'July', 'august':'Aug', 'september':'Sept', 'october':'Oct', 'november':'Nov', 'december':'Dec'}
+        self.month_num = {1:1, 2:1, 3:3, 4:4, 5:5, 6:6, 7:7, 8:8, 9:9, 10:10, 11:11, 12:12}
+        self.month_str_short = {'jan':1, 'feb':2, 'mar':3, 'apr':4, 'may':5, 'jun':6 ,'june':6, 'jul':7,'july':7, 'aug':8, 'sept':9, 'sep':9, 'oct':10, 'nov':11, 'dec':12}
+        self.month_str_long = {'january':1, 'february':2, 'march':3, 'april':4, 'may':5, 'june':6, 'july':7, 'august':8, 'september':9, 'october':10, 'november':11, 'december':12}
     
     def get_month_num(self, month):
         
@@ -174,7 +174,7 @@ class DateTime:
             line = line + self.day + "\t"
         
         if self.month is not None:
-            line = line + self.month + "\t"
+            line = line + str(self.month) + "\t"
             
         if self.year is not None:
             line = line + str(self.year) + "\t"

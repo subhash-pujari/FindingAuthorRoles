@@ -28,14 +28,13 @@ class ScrapWork:
             if duration is not None:
                 #self.work_file.write(line)
                 #self.work_file.write(duration.duration_string() + "\n")
-                print duration.duration_string()
-                print line
+                line.duration_tags.append(duration)
                 
             desig = self.desig_tag.design_tagger(line)
             if desig is not None:
-                print desig
-                print line
-                
+                for desig in desig:
+                    line.desig_tags.append(desig)
+            
 def main():
     pass
     
